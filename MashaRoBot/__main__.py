@@ -91,6 +91,8 @@ buttons = [
         InlineKeyboardButton(
             text="💾 SOURCE", callback_data="source_"),
         InlineKeyboardButton(
+            text="📀 ALITA DEVS", url="https://t.me/ALITADEVS"),
+        InlineKeyboardButton(
             text="👥 SUPPORT", url="https://t.me/AlitaSupport"
         ),
     ],
