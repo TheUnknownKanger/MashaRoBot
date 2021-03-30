@@ -74,14 +74,14 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-`Hellow` [🤗](https://telegra.ph/file/754a36d8c2e2b01f2a3a9.png) `My name is` *Alita*
+`Hellow` [🤗](https://telegra.ph/file/6937614341f42020a2ebc.jpg) `My name is` *LUND*
 `I'm here to help you manage your groups! Hit` *📚Commands* `button below to find out more about how to use me to my full potential.` 
 """
 
 buttons = [
     [
         InlineKeyboardButton(
-            text="➕️ ADD ALITA TO YOUR GROUP ➕️", url="t.me/AlitaRobot?startgroup=true"),
+            text="➕️ ADD LUND TO YOUR GROUP ➕️", url="t.me/TIMEPASSASSISTANTBOT?startgroup=true"),
     ],
     [
         InlineKeyboardButton(text="ℹ️ ABOUT", callback_data="masha_"),
@@ -89,25 +89,27 @@ buttons = [
     ],
     [
         InlineKeyboardButton(
-            text="💾 SOURCE", callback_data="source_"),
+            text="🇮🇳 OWNER", url="https://t.me/lucifeermorningstar"),
         InlineKeyboardButton(
-            text="👥 SUPPORT", url="https://t.me/AlitaSupport"
+            text="🇮🇳 CHANNEL", url="https://t.me/TheUnknownArmy_1"),
+        InlineKeyboardButton(
+            text="👥 SUPPORT", url="https://t.me/UnknownArmy_1"
         ),
     ],
 ]
 
 
 HELP_STRINGS = """
-`Hi.. I'm` [Alita🙋‍♀️](https://telegra.ph/file/754a36d8c2e2b01f2a3a9.png)
+`Hi.. I'm` [LUND🙋‍♀️](https://telegra.ph/file/6937614341f42020a2ebc.jpg)
 `Click on the buttons below to get documentation about specific modules..`"""
 
 
-MASHA_IMG = "https://telegra.ph/file/754a36d8c2e2b01f2a3a9.png"
+MASHA_IMG = "https://telegra.ph/file/6937614341f42020a2ebc.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
- You can support the project via [Telegram](t.me/Eviral) or by contacting @Eviral \
+ You can support the project via [Lund](t.me/TIMEPASSASSISTANTBOT) or by contacting @lucifeermorningstar \
  Supporting isnt always financial! \
- Those who cannot provide monetary support are welcome to help us develop the bot at @AlitaDevs."""
+ Those who cannot provide monetary support are welcome to help us develop the bot at @UnknownArmy_1."""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -352,7 +354,7 @@ def Masha_about_callback(update, context):
     query = update.callback_query
     if query.data == "masha_":
         query.message.edit_text(
-            text=""" ℹ️ I'm *Alita*, a powerful group management bot built to help you manage your group easily.
+            text=""" ℹ️ I'm *ℓυη∂*, a powerful group management bot built to help you manage your group easily.
                  \n❍ I can restrict users.
                  \n❍ I can greet users with customizable welcome messages and even set a group's rules.
                  \n❍ I have an advanced anti-flood system.
@@ -360,8 +362,8 @@ def Masha_about_callback(update, context):
                  \n❍ I have a note keeping system, blacklists, and even predetermined replies on certain keywords.
                  \n❍ I check for admins' permissions before executing any command and more stuffs
                  \n\n_Masha's licensed under the GNU General Public License v3.0_
-                 \nHere is the [💾Repository](https://github.com/TeamEviral/MashaRoBot).
-                 \n\nIf you have any question about Masha, let us know at @AlitaSupport.""",
+                 \nHere is the [💾Repository](https://t.me/lucifeermorningstar).
+                 \n\nIf you have any question about this bot, let us know at @UnknownArmy_1.""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
@@ -378,7 +380,7 @@ def Masha_about_callback(update, context):
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
-                disable_web_page_preview=False,
+                disable_web_page_preview=True,
         )
 
 
@@ -387,8 +389,8 @@ def Source_about_callback(update, context):
     query = update.callback_query
     if query.data == "source_":
         query.message.edit_text(
-            text=""" Hi..🤗 I'm *Alita*
-                 \nHere is the [Source Code](https://github.com/TeamEviral/MashaRoBot) .""",
+            text=""" Hi..🤗 I'm *ℓυη∂*
+                 \nHere is the [Source Code](https://t.me/lucifeermorningstar) .""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
@@ -405,7 +407,7 @@ def Source_about_callback(update, context):
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
-                disable_web_page_preview=False,
+                disable_web_page_preview=True,
         )
 
 @run_async
@@ -683,7 +685,7 @@ def main():
 
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "Yes I'm alive 😹")
+            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "I am now online!")
         except Unauthorized:
             LOGGER.warning(
                 "Bot isnt able to send message to support_chat, go and check!"
