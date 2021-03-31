@@ -1,23 +1,3 @@
-# Copyright (C) 2018 - 2020 MrYacha. All rights reserved. Source code available under the AGPL.
-# Copyright (C) 2019 Aiogram
-# Copyright (C) 2020 Jeepeo
-
-#
-# This file is part of AllMightBot.
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU Affero General Public License as
-# published by the Free Software Foundation, either version 3 of the
-# License, or (at your option) any later version.
-
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU Affero General Public License for more details.
-
-# You should have received a copy of the GNU Affero General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 import asyncio
 import csv
 import html
@@ -44,7 +24,7 @@ from aiogram.utils.exceptions import Unauthorized, NeedAdministratorRightsInTheC
 from babel.dates import format_timedelta
 from datetime import datetime, timedelta
 
-from MashaRoBot import OWNER_ID, BOT_ID, OPERATORS, decorator, bot
+from MashaRoBot import OWNER_ID, BOT_ID, DRAGONS, decorator, bot
 from MashaRoBot.services.mongo import db
 from MashaRoBot.services.redis import redis
 from MashaRoBot.services.telethon import tbot
@@ -560,7 +540,7 @@ async def fed_ban_user(message, fed, user, reason, strings):
     user_id = user['user_id']
 
     # Checks
-    if user_id in OPERATORS:
+    if user_id in DRAGONS:
         await message.reply(strings['user_wl'])
         return
 
@@ -895,7 +875,7 @@ async def fed_rename(message, fed, strings):
 async def fban_export(message, fed, strings):
     fed_id = fed['fed_id']
     key = 'fbanlist_lock:' + str(fed_id)
-    if redis.get(key) and message.from_user.id not in OPERATORS:
+    if redis.get(key) and message.from_user.id not in DRAGONS:
         ttl = format_timedelta(timedelta(seconds=redis.ttl(key)), strings['language_info']['babel'])
         await message.reply(strings['fbanlist_locked'] % ttl)
         return
@@ -943,7 +923,7 @@ async def fban_export(message, fed, strings):
 async def importfbans_cmd(message, fed, strings):
     fed_id = fed['fed_id']
     key = 'importfbans_lock:' + str(fed_id)
-    if redis.get(key) and message.from_user.id not in OPERATORS:
+    if redis.get(key) and message.from_user.id not in DRAGONS:
         ttl = format_timedelta(timedelta(seconds=redis.ttl(key)), strings['language_info']['babel'])
         await message.reply(strings['importfbans_locked'] % ttl)
         return
