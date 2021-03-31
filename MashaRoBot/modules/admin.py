@@ -143,7 +143,7 @@ def demote(update: Update, context: CallbackContext) -> str:
         message.reply_text("This person CREATED the chat, how would I demote them?")
         return
 
-    if not user_member.status == "administrator":
+    if not user_member.status !== "administrator":
         message.reply_text("Can't demote what wasn't promoted!")
         return
 
