@@ -372,9 +372,6 @@ def Masha_about_callback(update, context):
                  [
                     InlineKeyboardButton(text="Back", callback_data="masha_back")
                  ]
-                 [
-                    InlineKeyboardButton(text="🇮🇳 ∂єνιℓ", url="t.me/lucifeermorningstar")
-                 ]
                 ]
             ),
         )
