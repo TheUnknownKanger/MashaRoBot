@@ -97,8 +97,7 @@ buttons = [
         InlineKeyboardButton(
             text="🇮🇳 ∂єνιℓ", url="https://t.me/lucifeermorningstar"
         ),
-    ], 
-]
+    ]
 
 
 HELP_STRINGS = """
